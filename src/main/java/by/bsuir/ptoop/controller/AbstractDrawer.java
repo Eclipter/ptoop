@@ -36,7 +36,8 @@ public abstract class AbstractDrawer
         return nextDrawer;
     }
 
-    public void setNextDrawer(AbstractDrawer nextDrawer) {
+    public AbstractDrawer setNextDrawer(AbstractDrawer nextDrawer) {
         this.nextDrawer = nextDrawer;
+        return nextDrawer;
     }
 }
