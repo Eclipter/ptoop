@@ -1,26 +1,27 @@
 package by.bsuir.ptoop.controller.module;
 
+import by.bsuir.ptoop.controller.DrawerChain;
 import by.bsuir.ptoop.model.FigureList;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Menu;
 
 public class DrawingModuleContainer {
 
     private Menu menu;
-    private GraphicsContext context;
+    private DrawerChain drawerChain;
     private FigureList figureList;
 
-    public DrawingModuleContainer(Menu menu, GraphicsContext context) {
+    public DrawingModuleContainer(Menu menu, DrawerChain drawerChain) {
         this.menu = menu;
-        this.context = context;
+        this.drawerChain = drawerChain;
         this.figureList = new FigureList();
     }
 
     public void addModule(DrawingModule module)
     {
         menu.getItems().add(module.getMenuItem());
-        module.getDrawer().setGraphicsContext(context);
         module.setFigures(figureList);
+        module.getDrawer().ifPresent(drawerChain::addDrawer);
+        module.setDrawerChain(drawerChain);
     }
 
     public FigureList getFigureList() {
