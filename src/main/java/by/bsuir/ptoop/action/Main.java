@@ -39,7 +39,7 @@ public class Main extends Application {
     private static final int CANVAS_HEIGHT = 600;
     private static final double LINE_WIDTH = 2.0;
     private static final Color FILL_COLOR = Color.RED;
-    private static final String DRAW_MENU_TEXT = "Draw";
+    private static final String DRAW_MENU_TEXT = "File";
 
     public static void main(String[] args) {
         Application.launch(args);

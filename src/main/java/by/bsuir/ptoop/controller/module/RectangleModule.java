@@ -1,7 +1,6 @@
 package by.bsuir.ptoop.controller.module;
 
 import by.bsuir.ptoop.controller.RectangleDrawer;
-import by.bsuir.ptoop.model.Ellipse;
 import by.bsuir.ptoop.model.Point;
 import by.bsuir.ptoop.model.Rectangle;
 import javafx.geometry.Insets;
