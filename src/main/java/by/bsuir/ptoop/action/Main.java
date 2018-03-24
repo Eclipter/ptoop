@@ -9,11 +9,14 @@ import by.bsuir.ptoop.controller.PointDrawer;
 import by.bsuir.ptoop.controller.RectangleDrawer;
 import by.bsuir.ptoop.controller.TriangleDrawer;
 import by.bsuir.ptoop.controller.module.CircleModule;
+import by.bsuir.ptoop.controller.module.DeserializingModule;
+import by.bsuir.ptoop.controller.module.DrawingModule;
 import by.bsuir.ptoop.controller.module.DrawingModuleContainer;
 import by.bsuir.ptoop.controller.module.EllipseModule;
 import by.bsuir.ptoop.controller.module.LineModule;
 import by.bsuir.ptoop.controller.module.PointModule;
 import by.bsuir.ptoop.controller.module.RectangleModule;
+import by.bsuir.ptoop.controller.module.SerializingModule;
 import by.bsuir.ptoop.controller.module.TriangleModule;
 import by.bsuir.ptoop.model.Circle;
 import by.bsuir.ptoop.model.Ellipse;
@@ -32,6 +35,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
 
@@ -78,13 +84,20 @@ public class Main extends Application {
     }
 
     private void initDrawingContainer(GraphicsContext context, Menu menu) {
-        DrawingModuleContainer container = new DrawingModuleContainer(menu, context);
-        container.addModule(new LineModule());
-        container.addModule(new PointModule());
-        container.addModule(new CircleModule());
-        container.addModule(new EllipseModule());
-        container.addModule(new TriangleModule());
-        container.addModule(new RectangleModule());
+        DrawerChain chain = new DrawerChain();
+        DrawingModuleContainer container = new DrawingModuleContainer(menu, chain);
+        List<DrawingModule> drawingModules = new ArrayList<>();
+        drawingModules.add(new LineModule());
+        drawingModules.add(new PointModule());
+        drawingModules.add(new CircleModule());
+        drawingModules.add(new EllipseModule());
+        drawingModules.add(new TriangleModule());
+        drawingModules.add(new RectangleModule());
+        drawingModules.forEach(container::addModule);
+        chain.initGraphicContexts(context);
+
+        container.addModule(new SerializingModule());
+        container.addModule(new DeserializingModule());
     }
 
     private void draw(GraphicsContext context)
