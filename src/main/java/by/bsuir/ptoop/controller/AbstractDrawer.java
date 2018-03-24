@@ -1,10 +1,16 @@
 package by.bsuir.ptoop.controller;
 
 import by.bsuir.ptoop.model.Figure;
+import javafx.scene.canvas.GraphicsContext;
 
 public abstract class AbstractDrawer
 {
+    private GraphicsContext graphicsContext;
     private AbstractDrawer nextDrawer;
+
+    public AbstractDrawer(GraphicsContext graphicsContext) {
+        this.graphicsContext = graphicsContext;
+    }
 
     public abstract boolean supports(Figure figure);
 
@@ -21,6 +27,10 @@ public abstract class AbstractDrawer
     }
 
     public abstract void drawFigure(Figure figure);
+
+    public GraphicsContext getGraphicsContext() {
+        return graphicsContext;
+    }
 
     public AbstractDrawer getNextDrawer() {
         return nextDrawer;

@@ -1,6 +1,6 @@
 package by.bsuir.ptoop.model;
 
-public class Point
+public class Point extends Figure
 {
     private int x;
     private int y;

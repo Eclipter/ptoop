@@ -1,6 +1,6 @@
 package by.bsuir.ptoop.model;
 
-public class Triangle
+public class Triangle extends Figure
 {
     private Point a;
     private Point b;
