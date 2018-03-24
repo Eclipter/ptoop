@@ -17,7 +17,7 @@ public class RectangleModule extends DrawingModule {
     public RectangleModule() {
         super(MENU_TEXT);
 
-        this.drawer = new RectangleDrawer();
+        setDrawer(new RectangleDrawer());
 
         menuItem.setOnAction(event -> {
             Dialog<Rectangle> dialog = new Dialog<>();

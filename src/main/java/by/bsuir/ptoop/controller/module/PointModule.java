@@ -16,7 +16,7 @@ public class PointModule extends DrawingModule {
     public PointModule() {
         super(MENU_TEXT);
 
-        this.drawer = new PointDrawer();
+        setDrawer(new PointDrawer());
 
         menuItem.setOnAction(event -> {
             Dialog<Point> dialog = new Dialog<>();

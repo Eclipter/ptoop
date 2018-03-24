@@ -17,7 +17,7 @@ public class LineModule extends DrawingModule {
     public LineModule() {
         super(MENU_TEXT);
 
-        this.drawer = new LineDrawer();
+        setDrawer(new LineDrawer());
 
         menuItem.setOnAction(event -> {
             Dialog<Line> dialog = new Dialog<>();

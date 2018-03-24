@@ -17,7 +17,7 @@ public class CircleModule extends DrawingModule {
     public CircleModule() {
         super(MENU_TEXT);
 
-        this.drawer = new CircleDrawer();
+        setDrawer(new CircleDrawer());
 
         menuItem.setOnAction(event -> {
             Dialog<Circle> dialog = new Dialog<>();

@@ -1,13 +1,17 @@
 package by.bsuir.ptoop.controller.module;
 
 import by.bsuir.ptoop.controller.AbstractDrawer;
+import by.bsuir.ptoop.controller.DrawerChain;
 import by.bsuir.ptoop.model.Figure;
 import by.bsuir.ptoop.model.FigureList;
 import javafx.scene.control.MenuItem;
 
+import java.util.Optional;
+
 public abstract class DrawingModule {
 
-    protected AbstractDrawer drawer;
+    protected DrawerChain drawerChain;
+    protected Optional<AbstractDrawer> drawer = Optional.empty();
     protected MenuItem menuItem;
     protected FigureList figures;
 
@@ -20,16 +24,24 @@ public abstract class DrawingModule {
 
     public void draw(Figure figure)
     {
-        drawer.draw(figure);
+        drawerChain.draw(figure);
         figures.add(figure);
     }
 
-    public AbstractDrawer getDrawer() {
+    public DrawerChain getDrawerChain() {
+        return drawerChain;
+    }
+
+    public void setDrawerChain(DrawerChain drawerChain) {
+        this.drawerChain = drawerChain;
+    }
+
+    public Optional<AbstractDrawer> getDrawer() {
         return drawer;
     }
 
     public void setDrawer(AbstractDrawer drawer) {
-        this.drawer = drawer;
+        this.drawer = Optional.of(drawer);
     }
 
     public MenuItem getMenuItem() {

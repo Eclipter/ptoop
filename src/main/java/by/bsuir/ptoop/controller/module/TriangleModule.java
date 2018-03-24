@@ -17,7 +17,7 @@ public class TriangleModule extends DrawingModule {
     public TriangleModule() {
         super(MENU_TEXT);
 
-        this.drawer = new TriangleDrawer();
+        setDrawer(new TriangleDrawer());
 
         menuItem.setOnAction(event -> {
             Dialog<Triangle> dialog = new Dialog<>();

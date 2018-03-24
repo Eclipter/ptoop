@@ -17,7 +17,7 @@ public class EllipseModule extends DrawingModule {
     public EllipseModule() {
         super(MENU_TEXT);
 
-        this.drawer = new EllipseDrawer();
+        setDrawer(new EllipseDrawer());
 
         menuItem.setOnAction(event -> {
             Dialog<Ellipse> dialog = new Dialog<>();
