@@ -57,13 +57,13 @@ public class Main extends Application {
         list.add(new Rectangle(new Point(370, 440), 70, 30));
 
         AbstractDrawer drawer = new PointDrawer(context);
-        AbstractDrawer initialDrawer = drawer;
-        drawer = drawer.setNextDrawer(new LineDrawer(context));
-        drawer = drawer.setNextDrawer(new CircleDrawer(context));
-        drawer = drawer.setNextDrawer(new EllipseDrawer(context));
-        drawer = drawer.setNextDrawer(new TriangleDrawer(context));
-        drawer.setNextDrawer(new RectangleDrawer(context));
+        DrawerChain chain = new DrawerChain(drawer);
+        chain.addDrawer(new LineDrawer(context));
+        chain.addDrawer(new CircleDrawer(context));
+        chain.addDrawer(new EllipseDrawer(context));
+        chain.addDrawer(new TriangleDrawer(context));
+        chain.addDrawer(new RectangleDrawer(context));
 
-        list.forEach(initialDrawer::draw);
+        list.forEach(chain::draw);
     }
 }
