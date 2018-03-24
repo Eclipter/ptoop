@@ -3,16 +3,13 @@ package by.bsuir.ptoop.model;
 public class Rectangle extends Figure
 {
     private Point a;
-    private Point b;
-    private Point c;
-    private Point d;
+    private int width;
+    private int height;
 
-    public Rectangle(Point a, Point b, Point c, Point d)
-    {
+    public Rectangle(Point a, int width, int height) {
         this.a = a;
-        this.b = b;
-        this.c = c;
-        this.d = d;
+        this.width = width;
+        this.height = height;
     }
 
     public Point getA()
@@ -25,33 +22,19 @@ public class Rectangle extends Figure
         this.a = a;
     }
 
-    public Point getB()
-    {
-        return b;
+    public int getWidth() {
+        return width;
     }
 
-    public void setB(Point b)
-    {
-        this.b = b;
+    public void setWidth(int width) {
+        this.width = width;
     }
 
-    public Point getC()
-    {
-        return c;
+    public int getHeight() {
+        return height;
     }
 
-    public void setC(Point c)
-    {
-        this.c = c;
-    }
-
-    public Point getD()
-    {
-        return d;
-    }
-
-    public void setD(Point d)
-    {
-        this.d = d;
+    public void setHeight(int height) {
+        this.height = height;
     }
 }
