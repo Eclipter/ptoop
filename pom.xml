@@ -11,6 +11,7 @@
   <modules>
     <module>ptoop-commons</module>
     <module>ptoop-container</module>
+    <module>ptoop-roundrect</module>
   </modules>
 
   <properties>
