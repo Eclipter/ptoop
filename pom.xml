@@ -12,6 +12,8 @@
     <module>ptoop-commons</module>
     <module>ptoop-container</module>
     <module>ptoop-roundrect</module>
+      <module>ptoop-packer</module>
+      <module>ptoop-unpacker</module>
   </modules>
 
   <properties>
