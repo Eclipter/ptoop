@@ -9,13 +9,13 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
-public class CustomFigureLoadingModule extends DrawingModule {
+public class CustomModuleLoadingModule extends DrawingModule {
 
-    private static final String MENU_TEXT = "Load Custom Figure";
+    private static final String MENU_TEXT = "Load Custom Module";
     private static final String MODULE_PACKAGE = "by.bsuir.ptoop.controller.module.";
     private static final String MODULE_NAME_SUFFIX = "Module";
 
-    public CustomFigureLoadingModule(DrawingModuleContainer container, GraphicsContext context) {
+    public CustomModuleLoadingModule(DrawingModuleContainer container, GraphicsContext context) {
         super(MENU_TEXT);
 
         menuItem.setOnAction(event ->
@@ -23,8 +23,8 @@ public class CustomFigureLoadingModule extends DrawingModule {
             Dialog<String> dialog = new Dialog<>();
 
             dialog.setTitle(MENU_TEXT);
-            ButtonType drawButton = new ButtonType("Find and Load", ButtonBar.ButtonData.OK_DONE);
-            dialog.getDialogPane().getButtonTypes().addAll(drawButton, ButtonType.CANCEL);
+            ButtonType loadButton = new ButtonType("Find and Load", ButtonBar.ButtonData.OK_DONE);
+            dialog.getDialogPane().getButtonTypes().addAll(loadButton, ButtonType.CANCEL);
 
             GridPane grid = new GridPane();
             grid.setHgap(10);
@@ -32,7 +32,7 @@ public class CustomFigureLoadingModule extends DrawingModule {
             grid.setPadding(new Insets(20, 150, 10, 10));
 
             TextField figureNameField = new TextField();
-            figureNameField.setPromptText("Figure name");
+            figureNameField.setPromptText("Module name");
 
             grid.add(figureNameField, 0, 0);
 
@@ -40,25 +40,25 @@ public class CustomFigureLoadingModule extends DrawingModule {
 
             dialog.setResultConverter(button ->
             {
-                if (button == drawButton) {
+                if (button == loadButton) {
                     return figureNameField.getText();
                 }
                 return null;
             });
 
-            dialog.showAndWait().ifPresent(figureName ->
+            dialog.showAndWait().ifPresent(module ->
             {
                 try
                 {
-                    Class<?> figureModuleClass = Class.forName(MODULE_PACKAGE + figureName + MODULE_NAME_SUFFIX);
-                    DrawingModule module =  (DrawingModule) figureModuleClass.newInstance();
-                    container.addModule(module);
-                    module.getDrawer().ifPresent(moduleDrawer -> moduleDrawer.setGraphicsContext(context));
+                    Class<?> figureModuleClass = Class.forName(MODULE_PACKAGE + module + MODULE_NAME_SUFFIX);
+                    DrawingModule instance =  (DrawingModule) figureModuleClass.newInstance();
+                    container.addModule(instance);
+                    instance.getDrawer().ifPresent(moduleDrawer -> moduleDrawer.setGraphicsContext(context));
                 } catch (ClassNotFoundException e)
                 {
                     e.printStackTrace();
                     Alert alert = new Alert(Alert.AlertType.ERROR,
-                            "Figure " + figureName + " not found", ButtonType.OK);
+                            "Module " + module + " not found", ButtonType.OK);
                     alert.showAndWait();
                 } catch (IllegalAccessException | InstantiationException e)
                 {

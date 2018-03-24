@@ -9,7 +9,7 @@ import by.bsuir.ptoop.controller.PointDrawer;
 import by.bsuir.ptoop.controller.RectangleDrawer;
 import by.bsuir.ptoop.controller.TriangleDrawer;
 import by.bsuir.ptoop.controller.module.CircleModule;
-import by.bsuir.ptoop.controller.module.CustomFigureLoadingModule;
+import by.bsuir.ptoop.controller.module.CustomModuleLoadingModule;
 import by.bsuir.ptoop.controller.module.DeserializingModule;
 import by.bsuir.ptoop.controller.module.DrawingModule;
 import by.bsuir.ptoop.controller.module.DrawingModuleContainer;
@@ -99,7 +99,7 @@ public class Main extends Application {
 
         container.addModule(new SerializingModule());
         container.addModule(new DeserializingModule());
-        container.addModule(new CustomFigureLoadingModule(container, context));
+        container.addModule(new CustomModuleLoadingModule(container, context));
     }
 
     private void draw(GraphicsContext context)
