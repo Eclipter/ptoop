@@ -6,6 +6,9 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class LineDrawer extends AbstractDrawer {
 
+    public LineDrawer() {
+    }
+
     public LineDrawer(GraphicsContext graphicsContext) {
         super(graphicsContext);
     }

@@ -6,6 +6,9 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class EllipseDrawer extends AbstractDrawer {
 
+    public EllipseDrawer() {
+    }
+
     public EllipseDrawer(GraphicsContext graphicsContext) {
         super(graphicsContext);
     }

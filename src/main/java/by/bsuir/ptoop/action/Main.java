@@ -1,12 +1,35 @@
 package by.bsuir.ptoop.action;
 
-import by.bsuir.ptoop.controller.*;
-import by.bsuir.ptoop.model.*;
+import by.bsuir.ptoop.controller.AbstractDrawer;
+import by.bsuir.ptoop.controller.CircleDrawer;
+import by.bsuir.ptoop.controller.DrawerChain;
+import by.bsuir.ptoop.controller.EllipseDrawer;
+import by.bsuir.ptoop.controller.LineDrawer;
+import by.bsuir.ptoop.controller.PointDrawer;
+import by.bsuir.ptoop.controller.RectangleDrawer;
+import by.bsuir.ptoop.controller.TriangleDrawer;
+import by.bsuir.ptoop.controller.module.CircleModule;
+import by.bsuir.ptoop.controller.module.DrawingModuleContainer;
+import by.bsuir.ptoop.controller.module.EllipseModule;
+import by.bsuir.ptoop.controller.module.LineModule;
+import by.bsuir.ptoop.controller.module.PointModule;
+import by.bsuir.ptoop.controller.module.RectangleModule;
+import by.bsuir.ptoop.controller.module.TriangleModule;
+import by.bsuir.ptoop.model.Circle;
+import by.bsuir.ptoop.model.Ellipse;
+import by.bsuir.ptoop.model.FigureList;
+import by.bsuir.ptoop.model.Line;
+import by.bsuir.ptoop.model.Point;
+import by.bsuir.ptoop.model.Rectangle;
+import by.bsuir.ptoop.model.Triangle;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -15,7 +38,8 @@ public class Main extends Application {
     private static final int CANVAS_WIDTH = 600;
     private static final int CANVAS_HEIGHT = 600;
     private static final double LINE_WIDTH = 2.0;
-    private static final Color FILL_COLOR = Color.BLACK;
+    private static final Color FILL_COLOR = Color.RED;
+    private static final String DRAW_MENU_TEXT = "Draw";
 
     public static void main(String[] args) {
         Application.launch(args);
@@ -39,11 +63,28 @@ public class Main extends Application {
                 "-fx-border-radius: 5;" +
                 "-fx-border-color: blue;");
 
+        MenuBar menuBar = new MenuBar();
+        Menu menu = new Menu(DRAW_MENU_TEXT);
+        menuBar.getMenus().add(menu);
+
+        initDrawingContainer(context, menu);
+
         root.getChildren().add(canvas);
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(new VBox());
+        ((VBox) scene.getRoot()).getChildren().addAll(menuBar, root);
         stage.setScene(scene);
         stage.setTitle("PTOOP lab");
         stage.show();
+    }
+
+    private void initDrawingContainer(GraphicsContext context, Menu menu) {
+        DrawingModuleContainer container = new DrawingModuleContainer(menu, context);
+        container.addModule(new LineModule());
+        container.addModule(new PointModule());
+        container.addModule(new CircleModule());
+        container.addModule(new EllipseModule());
+        container.addModule(new TriangleModule());
+        container.addModule(new RectangleModule());
     }
 
     private void draw(GraphicsContext context)

@@ -6,6 +6,9 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class PointDrawer extends AbstractDrawer {
 
+    public PointDrawer() {
+    }
+
     public PointDrawer(GraphicsContext graphicsContext) {
         super(graphicsContext);
     }

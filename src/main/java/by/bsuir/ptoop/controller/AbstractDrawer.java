@@ -8,6 +8,9 @@ public abstract class AbstractDrawer
     private GraphicsContext graphicsContext;
     private AbstractDrawer nextDrawer;
 
+    public AbstractDrawer() {
+    }
+
     public AbstractDrawer(GraphicsContext graphicsContext) {
         this.graphicsContext = graphicsContext;
     }
@@ -30,6 +33,10 @@ public abstract class AbstractDrawer
 
     public GraphicsContext getGraphicsContext() {
         return graphicsContext;
+    }
+
+    public void setGraphicsContext(GraphicsContext graphicsContext) {
+        this.graphicsContext = graphicsContext;
     }
 
     public AbstractDrawer getNextDrawer() {

@@ -6,6 +6,9 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class RectangleDrawer extends AbstractDrawer {
 
+    public RectangleDrawer() {
+    }
+
     public RectangleDrawer(GraphicsContext graphicsContext) {
         super(graphicsContext);
     }

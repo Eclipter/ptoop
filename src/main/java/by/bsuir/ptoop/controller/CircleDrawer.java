@@ -6,6 +6,9 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class CircleDrawer extends AbstractDrawer {
 
+    public CircleDrawer() {
+    }
+
     public CircleDrawer(GraphicsContext graphicsContext) {
         super(graphicsContext);
     }

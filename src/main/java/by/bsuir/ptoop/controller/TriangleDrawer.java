@@ -6,6 +6,9 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class TriangleDrawer extends AbstractDrawer {
 
+    public TriangleDrawer() {
+    }
+
     public TriangleDrawer(GraphicsContext graphicsContext) {
         super(graphicsContext);
     }
