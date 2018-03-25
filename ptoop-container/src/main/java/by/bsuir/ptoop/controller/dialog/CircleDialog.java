@@ -52,6 +52,7 @@ public class CircleDialog extends AbstractDialog<Figure> {
 
     public CircleDialog(Figure figure)
     {
+        this();
         Circle circle = (Circle) figure;
         oX.setText(String.valueOf(circle.getO().getX()));
         oY.setText(String.valueOf(circle.getO().getY()));

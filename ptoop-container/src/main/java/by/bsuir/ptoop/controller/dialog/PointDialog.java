@@ -45,6 +45,7 @@ public class PointDialog extends AbstractDialog<Figure> {
     }
 
     public PointDialog(Figure figure) {
+        this();
         Point point = (Point) figure;
         x.setText(String.valueOf(point.getX()));
         y.setText(String.valueOf(point.getY()));

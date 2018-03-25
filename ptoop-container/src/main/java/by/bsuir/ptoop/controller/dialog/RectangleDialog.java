@@ -55,6 +55,7 @@ public class RectangleDialog extends AbstractDialog<Figure> {
     }
 
     public RectangleDialog(Figure figure) {
+        this();
         Rectangle rectangle = (Rectangle) figure;
         oX.setText(String.valueOf(rectangle.getA().getX()));
         oY.setText(String.valueOf(rectangle.getA().getY()));

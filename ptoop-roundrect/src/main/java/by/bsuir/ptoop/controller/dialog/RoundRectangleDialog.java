@@ -66,8 +66,8 @@ public class RoundRectangleDialog extends AbstractDialog<Figure> {
     }
 
     public RoundRectangleDialog(Figure figure) {
+        this();
         RoundRectangle roundRectangle = (RoundRectangle) figure;
-
         oX.setText(String.valueOf(roundRectangle.getA().getX()));
         oY.setText(String.valueOf(roundRectangle.getA().getY()));
         width.setText(String.valueOf(roundRectangle.getWidth()));

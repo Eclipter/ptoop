@@ -55,6 +55,7 @@ public class LineDialog extends AbstractDialog<Figure> {
     }
 
     public LineDialog(Figure figure) {
+        this();
         Line line = (Line) figure;
         aX.setText(String.valueOf(line.getA().getX()));
         aY.setText(String.valueOf(line.getA().getY()));

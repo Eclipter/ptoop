@@ -64,6 +64,7 @@ public class TriangleDialog extends AbstractDialog<Figure> {
     }
 
     public TriangleDialog(Figure figure) {
+        this();
         Triangle triangle = (Triangle) figure;
         aX.setText(String.valueOf(triangle.getA().getX()));
         aY.setText(String.valueOf(triangle.getA().getY()));

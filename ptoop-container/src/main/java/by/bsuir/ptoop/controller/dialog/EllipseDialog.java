@@ -55,6 +55,7 @@ public class EllipseDialog extends AbstractDialog<Figure> {
     }
 
     public EllipseDialog(Figure figure) {
+        this();
         Ellipse ellipse = (Ellipse) figure;
         oX.setText(String.valueOf(ellipse.getO().getX()));
         oY.setText(String.valueOf(ellipse.getO().getY()));
