@@ -1,7 +1,7 @@
 package by.bsuir.ptoop.controller.module;
 
-import by.bsuir.ptoop.controller.AbstractDrawer;
-import by.bsuir.ptoop.controller.CircleDrawer;
+import by.bsuir.ptoop.controller.drawer.AbstractDrawer;
+import by.bsuir.ptoop.controller.drawer.CircleDrawer;
 import by.bsuir.ptoop.controller.editor.AbstractEditor;
 import by.bsuir.ptoop.controller.editor.CircleEditor;
 import by.bsuir.ptoop.model.Figure;

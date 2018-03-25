@@ -1,6 +1,6 @@
 package by.bsuir.ptoop.controller.module;
 
-import by.bsuir.ptoop.controller.DrawerChain;
+import by.bsuir.ptoop.controller.drawer.DrawerChain;
 import by.bsuir.ptoop.controller.editor.EditorChain;
 import by.bsuir.ptoop.model.FigureList;
 import javafx.scene.canvas.GraphicsContext;

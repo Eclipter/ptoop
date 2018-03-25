@@ -1,4 +1,4 @@
-package by.bsuir.ptoop.controller;
+package by.bsuir.ptoop.controller.drawer;
 
 import by.bsuir.ptoop.model.Figure;
 import by.bsuir.ptoop.model.Triangle;

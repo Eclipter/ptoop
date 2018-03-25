@@ -1,7 +1,7 @@
 package by.bsuir.ptoop.controller.module;
 
-import by.bsuir.ptoop.controller.AbstractDrawer;
-import by.bsuir.ptoop.controller.TriangleDrawer;
+import by.bsuir.ptoop.controller.drawer.AbstractDrawer;
+import by.bsuir.ptoop.controller.drawer.TriangleDrawer;
 import by.bsuir.ptoop.controller.editor.AbstractEditor;
 import by.bsuir.ptoop.controller.editor.TriangleEditor;
 import by.bsuir.ptoop.model.Figure;

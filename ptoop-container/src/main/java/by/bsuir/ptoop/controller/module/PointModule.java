@@ -1,7 +1,7 @@
 package by.bsuir.ptoop.controller.module;
 
-import by.bsuir.ptoop.controller.AbstractDrawer;
-import by.bsuir.ptoop.controller.PointDrawer;
+import by.bsuir.ptoop.controller.drawer.AbstractDrawer;
+import by.bsuir.ptoop.controller.drawer.PointDrawer;
 import by.bsuir.ptoop.controller.editor.AbstractEditor;
 import by.bsuir.ptoop.controller.editor.PointEditor;
 import by.bsuir.ptoop.model.Figure;

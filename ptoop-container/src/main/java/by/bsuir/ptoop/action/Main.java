@@ -1,13 +1,13 @@
 package by.bsuir.ptoop.action;
 
-import by.bsuir.ptoop.controller.AbstractDrawer;
-import by.bsuir.ptoop.controller.CircleDrawer;
-import by.bsuir.ptoop.controller.DrawerChain;
-import by.bsuir.ptoop.controller.EllipseDrawer;
-import by.bsuir.ptoop.controller.LineDrawer;
-import by.bsuir.ptoop.controller.PointDrawer;
-import by.bsuir.ptoop.controller.RectangleDrawer;
-import by.bsuir.ptoop.controller.TriangleDrawer;
+import by.bsuir.ptoop.controller.drawer.AbstractDrawer;
+import by.bsuir.ptoop.controller.drawer.CircleDrawer;
+import by.bsuir.ptoop.controller.drawer.DrawerChain;
+import by.bsuir.ptoop.controller.drawer.EllipseDrawer;
+import by.bsuir.ptoop.controller.drawer.LineDrawer;
+import by.bsuir.ptoop.controller.drawer.PointDrawer;
+import by.bsuir.ptoop.controller.drawer.RectangleDrawer;
+import by.bsuir.ptoop.controller.drawer.TriangleDrawer;
 import by.bsuir.ptoop.controller.editor.EditorChain;
 import by.bsuir.ptoop.controller.module.CircleModule;
 import by.bsuir.ptoop.controller.module.CustomModuleLoadingModule;
