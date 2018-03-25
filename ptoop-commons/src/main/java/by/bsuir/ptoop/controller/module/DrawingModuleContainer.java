@@ -14,11 +14,12 @@ public class DrawingModuleContainer {
     private EditorChain editorChain;
     private GraphicsContext context;
 
-    public DrawingModuleContainer(Menu menu, DrawerChain drawerChain, EditorChain editorChain, GraphicsContext context) {
+    public DrawingModuleContainer(Menu menu, DrawerChain drawerChain, EditorChain editorChain,
+                                  FigureList figureList, GraphicsContext context) {
         this.menu = menu;
         this.drawerChain = drawerChain;
         this.editorChain = editorChain;
-        this.figureList = new FigureList();
+        this.figureList = figureList;
         this.context = context;
     }
 

@@ -62,7 +62,7 @@ public class Main extends Application {
         context.setLineWidth(LINE_WIDTH);
         context.setFill(FILL_COLOR);
 
-        draw(context);
+        FigureList figures = draw(context);
 
         Pane root = new Pane();
         root.setStyle("-fx-padding: 10;" +
@@ -76,7 +76,7 @@ public class Main extends Application {
         Menu menu = new Menu(DRAW_MENU_TEXT);
         menuBar.getMenus().add(menu);
 
-        initDrawingContainer(context, menu);
+        initDrawingContainer(context, menu, figures);
 
         root.getChildren().add(canvas);
         Scene scene = new Scene(new VBox());
@@ -86,10 +86,10 @@ public class Main extends Application {
         stage.show();
     }
 
-    private void initDrawingContainer(GraphicsContext context, Menu menu) {
+    private void initDrawingContainer(GraphicsContext context, Menu menu, FigureList figures) {
         DrawerChain chain = new DrawerChain();
         EditorChain editorChain = new EditorChain();
-        DrawingModuleContainer container = new DrawingModuleContainer(menu, chain, editorChain, context);
+        DrawingModuleContainer container = new DrawingModuleContainer(menu, chain, editorChain, figures, context);
         List<DrawingModule> drawingModules = new ArrayList<>();
         drawingModules.add(new LineModule());
         drawingModules.add(new PointModule());
@@ -105,7 +105,7 @@ public class Main extends Application {
         container.addModule(new CustomModuleLoadingModule(container, context));
     }
 
-    private void draw(GraphicsContext context)
+    private FigureList draw(GraphicsContext context)
     {
         FigureList list = new FigureList();
         list.add(new Point(60, 60));
@@ -124,5 +124,6 @@ public class Main extends Application {
         chain.addDrawer(new RectangleDrawer(context));
 
         list.forEach(chain::draw);
+        return list;
     }
 }
