@@ -97,7 +97,7 @@ public class Main extends Application {
         drawingModules.add(new EllipseModule());
         drawingModules.add(new TriangleModule());
         drawingModules.add(new RectangleModule());
-        drawingModules.add(new FigureModifyingModule());
+        drawingModules.add(new FigureModifyingModule(context));
         drawingModules.forEach(container::addModule);
 
         container.addModule(new SerializingModule());
