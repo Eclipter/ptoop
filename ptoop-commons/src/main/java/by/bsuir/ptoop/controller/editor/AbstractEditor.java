@@ -3,6 +3,8 @@ package by.bsuir.ptoop.controller.editor;
 import by.bsuir.ptoop.controller.dialog.AbstractDialog;
 import by.bsuir.ptoop.model.Figure;
 
+import java.util.Optional;
+
 public abstract class AbstractEditor {
 
     private AbstractEditor nextEditor;
@@ -13,11 +15,11 @@ public abstract class AbstractEditor {
 
     public abstract AbstractDialog<Figure> newDialog(Figure figure);
 
-    public Figure editFigure(Figure figure)
+    public Optional<Figure> editFigure(Figure figure)
     {
         if(supports(figure))
         {
-            return newDialog(figure).showAndWait().orElse(null);
+            return newDialog(figure).showAndWait();
         }
         else
         {

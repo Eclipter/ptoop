@@ -14,6 +14,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.VBox;
 
+import java.util.Optional;
+
 public class FiguresModifyingDialog extends AbstractDialog {
 
     public FiguresModifyingDialog(EditorChain editorChain, FigureList figureList) {
@@ -44,11 +46,14 @@ public class FiguresModifyingDialog extends AbstractDialog {
         editMenuItem.setOnAction(event ->
         {
             Figure selectedItem = view.getSelectionModel().getSelectedItem();
-            Figure newFigure = editorChain.editFigure(selectedItem);
-            figureList.remove(selectedItem);
-            figureList.add(newFigure);
-            observableList.remove(selectedItem);
-            observableList.add(newFigure);
+            Optional<Figure> newFigure = editorChain.editFigure(selectedItem);
+            newFigure.ifPresent(figure ->
+            {
+                figureList.remove(selectedItem);
+                figureList.add(figure);
+                observableList.remove(selectedItem);
+                observableList.add(figure);
+            });
         });
 
         VBox box = new VBox();

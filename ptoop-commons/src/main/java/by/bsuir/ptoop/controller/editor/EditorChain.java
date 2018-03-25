@@ -2,6 +2,8 @@ package by.bsuir.ptoop.controller.editor;
 
 import by.bsuir.ptoop.model.Figure;
 
+import java.util.Optional;
+
 public class EditorChain {
 
     private AbstractEditor rootEditor;
@@ -29,7 +31,7 @@ public class EditorChain {
         }
     }
 
-    public Figure editFigure(Figure figure)
+    public Optional<Figure> editFigure(Figure figure)
     {
         return rootEditor.editFigure(figure);
     }
