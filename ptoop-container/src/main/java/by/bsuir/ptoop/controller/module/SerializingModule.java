@@ -1,17 +1,16 @@
 package by.bsuir.ptoop.controller.module;
 
-import javafx.geometry.Insets;
+import by.bsuir.ptoop.controller.AbstractDrawer;
+import by.bsuir.ptoop.controller.editor.AbstractEditor;
+import by.bsuir.ptoop.controller.editor.SerializingEditor;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.Optional;
 
 public class SerializingModule extends DrawingModule {
 
@@ -22,38 +21,11 @@ public class SerializingModule extends DrawingModule {
 
         menuItem.setOnAction(event ->
         {
-            Dialog<String> dialog = new Dialog<>();
-
-            dialog.setTitle(MENU_TEXT);
-            ButtonType serializeButton = new ButtonType("Serialize", ButtonBar.ButtonData.OK_DONE);
-            dialog.getDialogPane().getButtonTypes().addAll(serializeButton, ButtonType.CANCEL);
-
-            GridPane grid = new GridPane();
-            grid.setHgap(10);
-            grid.setVgap(10);
-            grid.setPadding(new Insets(20, 150, 10, 10));
-
-            TextField filenameField = new TextField();
-            filenameField.setPromptText("Filename");
-
-            grid.add(filenameField, 0, 0);
-
-            dialog.getDialogPane().setContent(grid);
-
-            dialog.setResultConverter(button ->
-            {
-                if(button == serializeButton)
-                {
-                    return filenameField.getText();
-                }
-                return null;
-            });
-
-            dialog.showAndWait().ifPresent(filename ->
+            getEditor().newDialog().showAndWait().ifPresent(filename ->
             {
                 try
                 {
-                    ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(new File(filename)));
+                    ObjectOutputStream stream = new ObjectOutputStream(new FileOutputStream(new File((String) filename)));
                     stream.writeObject(getFigures());
                     stream.close();
 
@@ -65,5 +37,15 @@ public class SerializingModule extends DrawingModule {
                 }
             });
         });
+    }
+
+    @Override
+    public AbstractEditor getEditor() {
+        return new SerializingEditor();
+    }
+
+    @Override
+    public Optional<AbstractDrawer> currentDrawer() {
+        return Optional.empty();
     }
 }

@@ -1,13 +1,13 @@
 package by.bsuir.ptoop.controller.module;
 
-import javafx.geometry.Insets;
+import by.bsuir.ptoop.controller.AbstractDrawer;
+import by.bsuir.ptoop.controller.editor.AbstractEditor;
+import by.bsuir.ptoop.controller.editor.CustomModuleLoadingEditor;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
+
+import java.util.Optional;
 
 public class CustomModuleLoadingModule extends DrawingModule {
 
@@ -20,40 +20,13 @@ public class CustomModuleLoadingModule extends DrawingModule {
 
         menuItem.setOnAction(event ->
         {
-            Dialog<String> dialog = new Dialog<>();
-
-            dialog.setTitle(MENU_TEXT);
-            ButtonType loadButton = new ButtonType("Find and Load", ButtonBar.ButtonData.OK_DONE);
-            dialog.getDialogPane().getButtonTypes().addAll(loadButton, ButtonType.CANCEL);
-
-            GridPane grid = new GridPane();
-            grid.setHgap(10);
-            grid.setVgap(10);
-            grid.setPadding(new Insets(20, 150, 10, 10));
-
-            TextField figureNameField = new TextField();
-            figureNameField.setPromptText("Module name");
-
-            grid.add(figureNameField, 0, 0);
-
-            dialog.getDialogPane().setContent(grid);
-
-            dialog.setResultConverter(button ->
-            {
-                if (button == loadButton) {
-                    return figureNameField.getText();
-                }
-                return null;
-            });
-
-            dialog.showAndWait().ifPresent(module ->
+            getEditor().newDialog().showAndWait().ifPresent(module ->
             {
                 try
                 {
                     Class<?> figureModuleClass = Class.forName(MODULE_PACKAGE + module + MODULE_NAME_SUFFIX);
                     DrawingModule instance =  (DrawingModule) figureModuleClass.newInstance();
                     container.addModule(instance);
-                    instance.getDrawer().ifPresent(moduleDrawer -> moduleDrawer.setGraphicsContext(context));
                 } catch (ClassNotFoundException e)
                 {
                     e.printStackTrace();
@@ -67,5 +40,15 @@ public class CustomModuleLoadingModule extends DrawingModule {
                 }
             });
         });
+    }
+
+    @Override
+    public AbstractEditor getEditor() {
+        return new CustomModuleLoadingEditor();
+    }
+
+    @Override
+    public Optional<AbstractDrawer> currentDrawer() {
+        return Optional.empty();
     }
 }

@@ -2,6 +2,8 @@ package by.bsuir.ptoop.controller.module;
 
 import by.bsuir.ptoop.controller.AbstractDrawer;
 import by.bsuir.ptoop.controller.DrawerChain;
+import by.bsuir.ptoop.controller.editor.AbstractEditor;
+import by.bsuir.ptoop.controller.editor.EditorChain;
 import by.bsuir.ptoop.model.Figure;
 import by.bsuir.ptoop.model.FigureList;
 import javafx.scene.control.MenuItem;
@@ -14,6 +16,7 @@ public abstract class DrawingModule {
     protected Optional<AbstractDrawer> drawer = Optional.empty();
     protected MenuItem menuItem;
     protected FigureList figures;
+    protected EditorChain editorChain;
 
     public DrawingModule() {
     }
@@ -59,4 +62,16 @@ public abstract class DrawingModule {
     public void setFigures(FigureList figures) {
         this.figures = figures;
     }
+
+    public EditorChain getEditorChain() {
+        return editorChain;
+    }
+
+    public void setEditorChain(EditorChain editorChain) {
+        this.editorChain = editorChain;
+    }
+
+    public abstract AbstractEditor getEditor();
+
+    public abstract Optional<AbstractDrawer> currentDrawer();
 }

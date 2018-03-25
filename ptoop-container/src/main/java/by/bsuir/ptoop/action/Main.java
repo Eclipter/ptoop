@@ -8,6 +8,7 @@ import by.bsuir.ptoop.controller.LineDrawer;
 import by.bsuir.ptoop.controller.PointDrawer;
 import by.bsuir.ptoop.controller.RectangleDrawer;
 import by.bsuir.ptoop.controller.TriangleDrawer;
+import by.bsuir.ptoop.controller.editor.EditorChain;
 import by.bsuir.ptoop.controller.module.CircleModule;
 import by.bsuir.ptoop.controller.module.CustomModuleLoadingModule;
 import by.bsuir.ptoop.controller.module.DeserializingModule;
@@ -86,7 +87,8 @@ public class Main extends Application {
 
     private void initDrawingContainer(GraphicsContext context, Menu menu) {
         DrawerChain chain = new DrawerChain();
-        DrawingModuleContainer container = new DrawingModuleContainer(menu, chain);
+        EditorChain editorChain = new EditorChain();
+        DrawingModuleContainer container = new DrawingModuleContainer(menu, chain, editorChain, context);
         List<DrawingModule> drawingModules = new ArrayList<>();
         drawingModules.add(new LineModule());
         drawingModules.add(new PointModule());
@@ -95,7 +97,6 @@ public class Main extends Application {
         drawingModules.add(new TriangleModule());
         drawingModules.add(new RectangleModule());
         drawingModules.forEach(container::addModule);
-        chain.initGraphicContexts(context);
 
         container.addModule(new SerializingModule());
         container.addModule(new DeserializingModule());

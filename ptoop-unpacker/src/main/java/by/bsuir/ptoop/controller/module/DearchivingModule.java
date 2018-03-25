@@ -1,18 +1,17 @@
 package by.bsuir.ptoop.controller.module;
 
+import by.bsuir.ptoop.controller.AbstractDrawer;
+import by.bsuir.ptoop.controller.editor.AbstractEditor;
+import by.bsuir.ptoop.controller.editor.DearchivingEditor;
 import by.bsuir.ptoop.model.FigureList;
-import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.util.Optional;
 import java.util.zip.GZIPInputStream;
 
 public class DearchivingModule extends DrawingModule {
@@ -24,34 +23,7 @@ public class DearchivingModule extends DrawingModule {
 
         menuItem.setOnAction(event ->
         {
-            Dialog<String> dialog = new Dialog<>();
-
-            dialog.setTitle(MENU_TEXT);
-            ButtonType serializeButton = new ButtonType("Unpack", ButtonBar.ButtonData.OK_DONE);
-            dialog.getDialogPane().getButtonTypes().addAll(serializeButton, ButtonType.CANCEL);
-
-            GridPane grid = new GridPane();
-            grid.setHgap(10);
-            grid.setVgap(10);
-            grid.setPadding(new Insets(20, 150, 10, 10));
-
-            TextField filenameField = new TextField();
-            filenameField.setPromptText("Filename");
-
-            grid.add(filenameField, 0, 0);
-
-            dialog.getDialogPane().setContent(grid);
-
-            dialog.setResultConverter(button ->
-            {
-                if(button == serializeButton)
-                {
-                    return filenameField.getText();
-                }
-                return null;
-            });
-
-            dialog.showAndWait().ifPresent(filename ->
+            getEditor().newDialog().showAndWait().ifPresent(filename ->
             {
                 try
                 {
@@ -70,5 +42,15 @@ public class DearchivingModule extends DrawingModule {
                 }
             });
         });
+    }
+
+    @Override
+    public AbstractEditor getEditor() {
+        return new DearchivingEditor();
+    }
+
+    @Override
+    public Optional<AbstractDrawer> currentDrawer() {
+        return Optional.empty();
     }
 }

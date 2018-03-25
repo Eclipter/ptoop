@@ -1,13 +1,12 @@
 package by.bsuir.ptoop.controller.module;
 
+import by.bsuir.ptoop.controller.AbstractDrawer;
 import by.bsuir.ptoop.controller.PointDrawer;
-import by.bsuir.ptoop.model.Point;
-import javafx.geometry.Insets;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
+import by.bsuir.ptoop.controller.editor.AbstractEditor;
+import by.bsuir.ptoop.controller.editor.PointEditor;
+import by.bsuir.ptoop.model.Figure;
+
+import java.util.Optional;
 
 public class PointModule extends DrawingModule {
 
@@ -16,39 +15,17 @@ public class PointModule extends DrawingModule {
     public PointModule() {
         super(MENU_TEXT);
 
-        setDrawer(new PointDrawer());
+        menuItem.setOnAction(event ->
+                getEditor().newDialog().showAndWait().ifPresent(result -> draw((Figure) result)));
+    }
 
-        menuItem.setOnAction(event -> {
-            Dialog<Point> dialog = new Dialog<>();
-            dialog.setTitle(MENU_TEXT);
-            ButtonType drawButton = new ButtonType("Draw", ButtonBar.ButtonData.OK_DONE);
-            dialog.getDialogPane().getButtonTypes().addAll(drawButton, ButtonType.CANCEL);
+    @Override
+    public AbstractEditor getEditor() {
+        return new PointEditor();
+    }
 
-            GridPane grid = new GridPane();
-            grid.setHgap(10);
-            grid.setVgap(10);
-            grid.setPadding(new Insets(20, 150, 10, 10));
-
-            TextField x = new TextField();
-            x.setPromptText("x");
-            TextField y = new TextField();
-            y.setPromptText("y");
-
-            grid.add(x, 0, 0);
-            grid.add(y, 0, 1);
-
-            dialog.getDialogPane().setContent(grid);
-
-            dialog.setResultConverter(button ->
-            {
-                if(button == drawButton)
-                {
-                    return new Point(Integer.parseInt(x.getText()), Integer.parseInt(y.getText()));
-                }
-                return null;
-            });
-
-            dialog.showAndWait().ifPresent(this::draw);
-        });
+    @Override
+    public Optional<AbstractDrawer> currentDrawer() {
+        return Optional.of(new PointDrawer());
     }
 }

@@ -1,0 +1,36 @@
+package by.bsuir.ptoop.controller.editor;
+
+import by.bsuir.ptoop.model.Figure;
+
+public class EditorChain {
+
+    private AbstractEditor rootEditor;
+    private AbstractEditor lastEditor;
+
+    public EditorChain() {
+    }
+
+    public EditorChain(AbstractEditor rootEditor) {
+        this.rootEditor = rootEditor;
+        this.lastEditor = rootEditor;
+    }
+
+    public void addEditor(AbstractEditor editor)
+    {
+        if(rootEditor == null)
+        {
+            this.rootEditor = editor;
+            this.lastEditor = editor;
+        }
+        else
+        {
+            lastEditor.setNextEditor(editor);
+            lastEditor = editor;
+        }
+    }
+
+    public Figure editFigure(Figure figure)
+    {
+        return rootEditor.editFigure(figure);
+    }
+}
