@@ -19,7 +19,6 @@ public class CircleDialog extends AbstractDialog<Figure> {
 
         this.setTitle("Add Circle");
         ButtonType drawButton = new ButtonType("Add", ButtonBar.ButtonData.OK_DONE);
-        setConfirmButton(drawButton);
         this.getDialogPane().getButtonTypes().addAll(drawButton, ButtonType.CANCEL);
 
         GridPane grid = new GridPane();
