@@ -31,4 +31,12 @@ public class Point extends Figure
     {
         this.y = y;
     }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }

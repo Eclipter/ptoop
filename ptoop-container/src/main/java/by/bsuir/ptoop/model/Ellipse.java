@@ -35,4 +35,13 @@ public class Ellipse extends Figure {
     public void setHeight(int height) {
         this.height = height;
     }
+
+    @Override
+    public String toString() {
+        return "Ellipse{" +
+                "o=" + o +
+                ", width=" + width +
+                ", height=" + height +
+                '}';
+    }
 }

@@ -42,4 +42,13 @@ public class Triangle extends Figure
     {
         this.c = c;
     }
+
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                "a=" + a +
+                ", b=" + b +
+                ", c=" + c +
+                '}';
+    }
 }

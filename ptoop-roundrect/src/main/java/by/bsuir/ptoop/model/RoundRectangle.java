@@ -55,4 +55,15 @@ public class RoundRectangle extends Figure {
     public void setArcHeight(int arcHeight) {
         this.arcHeight = arcHeight;
     }
+
+    @Override
+    public String toString() {
+        return "RoundRectangle{" +
+                "a=" + a +
+                ", width=" + width +
+                ", height=" + height +
+                ", arcWidth=" + arcWidth +
+                ", arcHeight=" + arcHeight +
+                '}';
+    }
 }

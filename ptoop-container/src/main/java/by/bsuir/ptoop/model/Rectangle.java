@@ -37,4 +37,13 @@ public class Rectangle extends Figure
     public void setHeight(int height) {
         this.height = height;
     }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" +
+                "a=" + a +
+                ", width=" + width +
+                ", height=" + height +
+                '}';
+    }
 }

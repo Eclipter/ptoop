@@ -30,4 +30,12 @@ public class Circle extends Figure
     {
         this.radius = radius;
     }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "o=" + o +
+                ", radius=" + radius +
+                '}';
+    }
 }

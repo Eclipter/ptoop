@@ -30,4 +30,12 @@ public class Line extends Figure
     {
         this.b = b;
     }
+
+    @Override
+    public String toString() {
+        return "Line{" +
+                "a=" + a +
+                ", b=" + b +
+                '}';
+    }
 }
