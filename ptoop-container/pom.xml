@@ -21,16 +21,19 @@
             <groupId>by.bsuir</groupId>
             <artifactId>ptoop-roundrect</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>by.bsuir</groupId>
             <artifactId>ptoop-packer</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>by.bsuir</groupId>
             <artifactId>ptoop-unpacker</artifactId>
             <version>1.0-SNAPSHOT</version>
+            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
