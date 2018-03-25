@@ -13,7 +13,6 @@ import java.util.Optional;
 public abstract class DrawingModule {
 
     protected DrawerChain drawerChain;
-    protected Optional<AbstractDrawer> drawer = Optional.empty();
     protected MenuItem menuItem;
     protected FigureList figures;
     protected EditorChain editorChain;
@@ -37,14 +36,6 @@ public abstract class DrawingModule {
 
     public void setDrawerChain(DrawerChain drawerChain) {
         this.drawerChain = drawerChain;
-    }
-
-    public Optional<AbstractDrawer> getDrawer() {
-        return drawer;
-    }
-
-    public void setDrawer(AbstractDrawer drawer) {
-        this.drawer = Optional.of(drawer);
     }
 
     public MenuItem getMenuItem() {
