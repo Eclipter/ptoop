@@ -2,6 +2,8 @@ package by.bsuir.ptoop.model;
 
 public class Circle extends Figure
 {
+    private static final long serialVersionUID = 6981819431273104516L;
+
     private Point o;
     private int radius;
 

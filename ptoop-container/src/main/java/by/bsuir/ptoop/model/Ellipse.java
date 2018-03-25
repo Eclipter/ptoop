@@ -2,6 +2,8 @@ package by.bsuir.ptoop.model;
 
 public class Ellipse extends Figure {
 
+    private static final long serialVersionUID = -7503585410147167459L;
+
     private Point o;
     private int width;
     private int height;

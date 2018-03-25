@@ -2,6 +2,8 @@ package by.bsuir.ptoop.model;
 
 public class Triangle extends Figure
 {
+    private static final long serialVersionUID = 2355728648139966179L;
+
     private Point a;
     private Point b;
     private Point c;

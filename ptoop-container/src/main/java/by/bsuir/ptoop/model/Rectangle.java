@@ -2,6 +2,8 @@ package by.bsuir.ptoop.model;
 
 public class Rectangle extends Figure
 {
+    private static final long serialVersionUID = -7686871013612712306L;
+
     private Point a;
     private int width;
     private int height;

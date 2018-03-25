@@ -2,6 +2,8 @@ package by.bsuir.ptoop.model;
 
 public class Point extends Figure
 {
+    private static final long serialVersionUID = 4758551746499542532L;
+
     private int x;
     private int y;
 

@@ -15,6 +15,7 @@ import by.bsuir.ptoop.controller.module.DeserializingModule;
 import by.bsuir.ptoop.controller.module.DrawingModule;
 import by.bsuir.ptoop.controller.module.DrawingModuleContainer;
 import by.bsuir.ptoop.controller.module.EllipseModule;
+import by.bsuir.ptoop.controller.module.FigureModifyingModule;
 import by.bsuir.ptoop.controller.module.LineModule;
 import by.bsuir.ptoop.controller.module.PointModule;
 import by.bsuir.ptoop.controller.module.RectangleModule;
@@ -96,6 +97,7 @@ public class Main extends Application {
         drawingModules.add(new EllipseModule());
         drawingModules.add(new TriangleModule());
         drawingModules.add(new RectangleModule());
+        drawingModules.add(new FigureModifyingModule());
         drawingModules.forEach(container::addModule);
 
         container.addModule(new SerializingModule());

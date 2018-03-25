@@ -9,6 +9,8 @@ import java.util.stream.Stream;
 
 public class FigureList implements List<Figure>, Serializable {
 
+    private static final long serialVersionUID = 3904027062008261626L;
+
     private List<Figure> list;
 
     public FigureList() {

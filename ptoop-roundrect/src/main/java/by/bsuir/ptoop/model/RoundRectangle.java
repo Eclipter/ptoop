@@ -2,6 +2,8 @@ package by.bsuir.ptoop.model;
 
 public class RoundRectangle extends Figure {
 
+    private static final long serialVersionUID = 369311943010378277L;
+
     private Point a;
     private int width;
     private int height;
