@@ -53,6 +53,7 @@ public class FiguresModifyingDialog extends AbstractDialog {
 
         VBox box = new VBox();
         box.getChildren().addAll(menuBar, view);
+        box.setMinWidth(500);
         this.getDialogPane().setContent(box);
     }
 }
