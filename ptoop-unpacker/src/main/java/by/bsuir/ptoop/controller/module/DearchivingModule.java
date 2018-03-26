@@ -3,16 +3,13 @@ package by.bsuir.ptoop.controller.module;
 import by.bsuir.ptoop.controller.drawer.AbstractDrawer;
 import by.bsuir.ptoop.controller.editor.AbstractEditor;
 import by.bsuir.ptoop.controller.editor.DearchivingEditor;
+import by.bsuir.ptoop.controller.util.DearchivingUtil;
 import by.bsuir.ptoop.model.FigureList;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.util.Optional;
-import java.util.zip.GZIPInputStream;
 
 public class DearchivingModule extends DrawingModule {
 
@@ -27,7 +24,7 @@ public class DearchivingModule extends DrawingModule {
             {
                 try
                 {
-                    FigureList figures = (FigureList) dearchiveObject((String) filename);
+                    FigureList figures = (FigureList) DearchivingUtil.dearchiveObject((String) filename);
                     figures.forEach(this::draw);
 
                 } catch (IOException | ClassNotFoundException e)
@@ -38,14 +35,6 @@ public class DearchivingModule extends DrawingModule {
                 }
             });
         });
-    }
-
-    public Object dearchiveObject(String filename) throws IOException, ClassNotFoundException {
-        ObjectInputStream stream = new ObjectInputStream(
-                new GZIPInputStream(new FileInputStream(new File(filename + ".gz"))));
-        Object object = stream.readObject();
-        stream.close();
-        return object;
     }
 
     @Override

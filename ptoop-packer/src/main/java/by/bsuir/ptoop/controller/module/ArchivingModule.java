@@ -3,15 +3,12 @@ package by.bsuir.ptoop.controller.module;
 import by.bsuir.ptoop.controller.drawer.AbstractDrawer;
 import by.bsuir.ptoop.controller.editor.AbstractEditor;
 import by.bsuir.ptoop.controller.editor.ArchivingEditor;
+import by.bsuir.ptoop.controller.util.ArchivingUtility;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.Optional;
-import java.util.zip.GZIPOutputStream;
 
 public class ArchivingModule extends DrawingModule {
 
@@ -26,7 +23,7 @@ public class ArchivingModule extends DrawingModule {
             {
                 try
                 {
-                    archiveObject((String) filename, figures);
+                    ArchivingUtility.archiveObject((String) filename, figures);
                 } catch (IOException e)
                 {
                     e.printStackTrace();
@@ -35,14 +32,6 @@ public class ArchivingModule extends DrawingModule {
                 }
             });
         });
-    }
-
-    public void archiveObject(String filename, Object object) throws IOException
-    {
-        GZIPOutputStream outputStream = new GZIPOutputStream(new FileOutputStream(new File(filename + ".gz")));
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
-        objectOutputStream.writeObject(object);
-        objectOutputStream.close();
     }
 
     @Override
