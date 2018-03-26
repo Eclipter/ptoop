@@ -15,6 +15,7 @@
       <module>ptoop-packer</module>
       <module>ptoop-unpacker</module>
     <module>ptoop-checksum-saver</module>
+    <module>ptoop-checksum-checker</module>
   </modules>
 
   <properties>
