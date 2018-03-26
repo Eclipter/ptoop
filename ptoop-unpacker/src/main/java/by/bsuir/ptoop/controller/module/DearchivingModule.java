@@ -27,11 +27,7 @@ public class DearchivingModule extends DrawingModule {
             {
                 try
                 {
-                    ObjectInputStream stream = new ObjectInputStream(
-                            new GZIPInputStream(new FileInputStream(new File(filename + ".gz"))));
-                    FigureList figures = (FigureList) stream.readObject();
-                    stream.close();
-
+                    FigureList figures = (FigureList) dearchiveObject((String) filename);
                     figures.forEach(this::draw);
 
                 } catch (IOException | ClassNotFoundException e)
@@ -42,6 +38,14 @@ public class DearchivingModule extends DrawingModule {
                 }
             });
         });
+    }
+
+    public Object dearchiveObject(String filename) throws IOException, ClassNotFoundException {
+        ObjectInputStream stream = new ObjectInputStream(
+                new GZIPInputStream(new FileInputStream(new File(filename + ".gz"))));
+        Object object = stream.readObject();
+        stream.close();
+        return object;
     }
 
     @Override
