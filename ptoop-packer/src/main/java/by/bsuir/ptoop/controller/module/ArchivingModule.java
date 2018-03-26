@@ -26,11 +26,7 @@ public class ArchivingModule extends DrawingModule {
             {
                 try
                 {
-                    GZIPOutputStream outputStream = new GZIPOutputStream(new FileOutputStream(new File(filename + ".gz")));
-                    ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
-                    objectOutputStream.writeObject(figures);
-                    objectOutputStream.close();
-
+                    archiveObject((String) filename, figures);
                 } catch (IOException e)
                 {
                     e.printStackTrace();
@@ -39,6 +35,14 @@ public class ArchivingModule extends DrawingModule {
                 }
             });
         });
+    }
+
+    public void archiveObject(String filename, Object object) throws IOException
+    {
+        GZIPOutputStream outputStream = new GZIPOutputStream(new FileOutputStream(new File(filename + ".gz")));
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+        objectOutputStream.writeObject(object);
+        objectOutputStream.close();
     }
 
     @Override
