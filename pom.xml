@@ -14,6 +14,7 @@
     <module>ptoop-roundrect</module>
       <module>ptoop-packer</module>
       <module>ptoop-unpacker</module>
+    <module>ptoop-checksum-saver</module>
   </modules>
 
   <properties>

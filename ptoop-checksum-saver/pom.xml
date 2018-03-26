@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ptoop-container</artifactId>
+    <artifactId>ptoop-checksum-saver</artifactId>
 
     <dependencies>
         <dependency>
@@ -19,27 +19,8 @@
         </dependency>
         <dependency>
             <groupId>by.bsuir</groupId>
-            <artifactId>ptoop-roundrect</artifactId>
+            <artifactId>oop-checksum-saver</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>by.bsuir</groupId>
-            <artifactId>ptoop-packer</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>by.bsuir</groupId>
-            <artifactId>ptoop-unpacker</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>by.bsuir</groupId>
-            <artifactId>ptoop-checksum-saver</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
