@@ -15,6 +15,10 @@ public class CustomModuleLoadingModule extends DrawingModule {
     private static final String MODULE_PACKAGE = "by.bsuir.ptoop.controller.module.";
     private static final String MODULE_NAME_SUFFIX = "Module";
 
+    /**
+     * Module retrieves the module name from dialog and loads it by creating a new instance of corresponding class.
+     * Module name should be a part of corresponding {@link DrawingModule} implementing class (without word "Module")
+     */
     public CustomModuleLoadingModule(DrawingModuleContainer container, GraphicsContext context) {
         super(MENU_TEXT);
 

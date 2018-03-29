@@ -6,6 +6,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
+/**
+ * Dialog suggests to enter a module name
+ */
 public class CustomModuleLoadingDialog extends AbstractDialog<String> {
 
     public CustomModuleLoadingDialog() {

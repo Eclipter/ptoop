@@ -12,6 +12,9 @@ public class FigureModifyingModule extends DrawingModule {
 
     private static final String MENU_TEXT = "Modify Figures";
 
+    /**
+     * Module basically redraws the whole figures list after closing {@link FiguresModifyingDialog}
+     */
     public FigureModifyingModule(GraphicsContext graphicsContext) {
         super(MENU_TEXT);
 

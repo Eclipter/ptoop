@@ -4,6 +4,9 @@ import by.bsuir.ptoop.model.Figure;
 
 import java.util.Optional;
 
+/**
+ * Useful chain container class used only for finding appropriate dialog for figures and providing a dialog
+ */
 public class EditorChain {
 
     private AbstractEditor rootEditor;

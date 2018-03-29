@@ -6,6 +6,9 @@ import by.bsuir.ptoop.model.FigureList;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Menu;
 
+/**
+ * Global container for all app's functionality modules and necessary resources
+ */
 public class DrawingModuleContainer {
 
     private Menu menu;
@@ -23,6 +26,13 @@ public class DrawingModuleContainer {
         this.context = context;
     }
 
+    /**
+     * Adds a functionality module to the container:
+     * Adds a menu item to global menu
+     * Provides editor chain, drawer chain and global figures list to modules
+     * If a module has a drawer (module supports drawing figures), graphics context is provided and
+     * module drawer and editor are added to chains
+     */
     public void addModule(DrawingModule module)
     {
         menu.getItems().add(module.getMenuItem());

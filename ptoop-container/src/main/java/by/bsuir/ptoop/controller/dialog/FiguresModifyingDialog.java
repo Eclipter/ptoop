@@ -18,6 +18,11 @@ import java.util.Optional;
 
 public class FiguresModifyingDialog extends AbstractDialog {
 
+    /**
+     * Dialog has button for opening figure modifying dialog ({@link EditorChain} is used for finding it)
+     * Also it has a button for removing selected figures.
+     * Figures are listed in {@link TableView} that supports items selection
+     */
     public FiguresModifyingDialog(EditorChain editorChain, FigureList figureList) {
 
         this.setTitle("Edit figures");

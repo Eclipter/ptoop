@@ -54,6 +54,9 @@ public class Main extends Application {
         Application.launch(args);
     }
 
+    /**
+     * Creates base GUI with menu and canvas
+     */
     public void start(Stage stage) throws Exception {
 
         Canvas canvas = new Canvas(CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -86,6 +89,12 @@ public class Main extends Application {
         stage.show();
     }
 
+    /**
+     * Initializes drawer and figure editor chain and adds base drawing modules
+     * + figure modifying module
+     * + serializing/deserializing modules
+     * + module for loading custom modules
+     */
     private void initDrawingContainer(GraphicsContext context, Menu menu, FigureList figures) {
         DrawerChain chain = new DrawerChain();
         EditorChain editorChain = new EditorChain();
@@ -105,6 +114,9 @@ public class Main extends Application {
         container.addModule(new CustomModuleLoadingModule(container, context));
     }
 
+    /**
+     * Creates, draws and returns initial set of figures (result of 1st lab, used for demo
+     */
     private FigureList draw(GraphicsContext context)
     {
         FigureList list = new FigureList();

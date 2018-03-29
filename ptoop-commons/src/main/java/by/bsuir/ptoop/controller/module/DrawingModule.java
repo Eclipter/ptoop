@@ -10,6 +10,10 @@ import javafx.scene.control.MenuItem;
 
 import java.util.Optional;
 
+/**
+ * Module class responsible for creation and maintaining MenuItem
+ * that provides access to module functionality by pressing on it
+ */
 public abstract class DrawingModule {
 
     protected DrawerChain drawerChain;
@@ -24,6 +28,9 @@ public abstract class DrawingModule {
         this.menuItem = new MenuItem(menuText);
     }
 
+    /**
+     * Method that draws figures and ads them to a global list
+     */
     public void draw(Figure figure)
     {
         drawerChain.draw(figure);

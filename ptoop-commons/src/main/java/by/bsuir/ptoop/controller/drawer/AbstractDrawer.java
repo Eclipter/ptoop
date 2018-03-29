@@ -15,8 +15,15 @@ public abstract class AbstractDrawer
         this.graphicsContext = graphicsContext;
     }
 
+    /**
+     * Indicates if this particular drawer can draw this figure
+     */
     public abstract boolean supports(Figure figure);
 
+    /**
+     * drawing method working according to Chain Of Responsibility pattern
+     * @param figure abstract figure to draw
+     */
     public void draw(Figure figure)
     {
         if(!supports(figure))
@@ -29,6 +36,9 @@ public abstract class AbstractDrawer
         }
     }
 
+    /**
+     * Method for drawing figures (putting them to canvas using graphics context class field
+     */
     public abstract void drawFigure(Figure figure);
 
     public GraphicsContext getGraphicsContext() {

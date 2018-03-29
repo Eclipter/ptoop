@@ -7,6 +7,9 @@ import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 import java.util.stream.Stream;
 
+/**
+ * Proxy class for {@link Figure} ArrayList
+ */
 public class FigureList implements List<Figure>, Serializable {
 
     private static final long serialVersionUID = 3904027062008261626L;
