@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 
+/**
+ * Adapter class that uses checksum calculating and saving logic from https://github.com/artvit/ptoop
+ */
 public class ChecksumSaverProcessorAdapter extends ChecksumSaverProcessor implements ChecksumSaver {
 
     public boolean saveFiguresChecksum(FigureList figures) throws IOException {

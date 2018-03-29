@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 
+/**
+ * Adapter class that uses checksum checking logic from https://github.com/artvit/ptoop
+ */
 public class ChecksumCheckingProcessorAdapter extends ChecksumCheckerProcessor implements ChecksumChecker {
 
     @Override
